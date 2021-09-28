@@ -20,17 +20,64 @@ module.exports = {
                 });
                 break;
             case 'fishington':
-                applicationID = '814288819477020702';
+                    client.discordTogether.createTogetherCode(interaction.member.voice.channel.id, 'fishing').then(async invite => {
+                        const embed = new MessageEmbed()
+                        .setColor(config.defaultSuccessColor)
+                        .setDescription(client.languages.__mf({phrase: 'youtube.inviteMessage', locale: language}, {inviteLink: invite.code}))
+                        .setURL(`${invite.code}`)
+                        return interaction.update({content: ' ', components: [], embeds: [embed]})
+                    });
                 break;
             case 'poker':
-                applicationID = '755827207812677713';
+                client.discordTogether.createTogetherCode(message.member.voice.channel.id, 'poker').then(async invite => {
+                    const embed = new MessageEmbed()
+                    .setColor(config.defaultSuccessColor)
+                    .setDescription(client.languages.__mf({phrase: 'youtube.inviteMessage', locale: language}, {inviteLink: invite.code}))
+                    .setURL(`${invite.code}`)
+                    return interaction.update({content: ' ', components: [], embeds: [embed]})
+                });
                 break;
             case 'betrayal':
-                applicationID = '773336526917861400';
+                client.discordTogether.createTogetherCode(message.member.voice.channel.id, 'betrayal').then(async invite => {
+                    const embed = new MessageEmbed()
+                    .setColor(config.defaultSuccessColor)
+                    .setDescription(client.languages.__mf({phrase: 'youtube.inviteMessage', locale: language}, {inviteLink: invite.code}))
+                    .setURL(`${invite.code}`)
+                    return interaction.update({content: ' ', components: [], embeds: [embed]})
+                });
                 break;
             case 'chess':
-                applicationID = '832012774040141894';
+                client.discordTogether.createTogetherCode(message.member.voice.channel.id, 'chess').then(async invite => {
+                    return message.channel.send(`${invite.code}`);
+                });
                 break;
+            case 'lettertile':
+                client.discordTogether.createTogetherCode(message.member.voice.channel.id, 'lettertile').then(async invite => {
+                    const embed = new MessageEmbed()
+                    .setColor(config.defaultSuccessColor)
+                    .setDescription(client.languages.__mf({phrase: 'youtube.inviteMessage', locale: language}, {inviteLink: invite.code}))
+                    .setURL(`${invite.code}`)
+                    return interaction.update({content: ' ', components: [], embeds: [embed]})
+                });
+                break;
+            case 'workdsnack':
+                client.discordTogether.createTogetherCode(message.member.voice.channel.id, 'workdsnack').then(async invite => {
+                    const embed = new MessageEmbed()
+                    .setColor(config.defaultSuccessColor)
+                    .setDescription(client.languages.__mf({phrase: 'youtube.inviteMessage', locale: language}, {inviteLink: invite.code}))
+                    .setURL(`${invite.code}`)
+                    return interaction.update({content: ' ', components: [], embeds: [embed]})
+                });
+                break;
+            case 'doodlecrew':
+                client.discordTogether.createTogetherCode(message.member.voice.channel.id, 'doodlecrew').then(async invite => {
+                    const embed = new MessageEmbed()
+                    .setColor(config.defaultSuccessColor)
+                    .setDescription(client.languages.__mf({phrase: 'youtube.inviteMessage', locale: language}, {inviteLink: invite.code}))
+                    .setURL(`${invite.code}`)
+                    return interaction.update({content: ' ', components: [], embeds: [embed]})
+                });
+                break;        
         }
     }    
 }
