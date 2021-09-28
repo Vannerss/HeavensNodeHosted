@@ -1,5 +1,5 @@
 const fs = require('fs');
-const selectmenus = fs.readdirSync('./selectmenus');
+const selectmenus = fs.readdirSync('./selectMenus');
 
 module.exports = (client) => {
     for (const file of selectmenus) {
