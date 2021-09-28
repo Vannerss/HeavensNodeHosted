@@ -21,7 +21,7 @@ module.exports = {
                 {
                     label: 'Fishington',
                     description: 'Creates a Fishington session',
-                    value: 'fishington'
+                    value: 'fishing'
                 },
                 {
                     label: 'Betrayal',
