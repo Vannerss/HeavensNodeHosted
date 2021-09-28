@@ -29,7 +29,7 @@ module.exports = {
                     });
                 break;
             case 'poker':
-                client.discordTogether.createTogetherCode(message.member.voice.channel.id, 'poker').then(async invite => {
+                client.discordTogether.createTogetherCode(interaction.member.voice.channel.id, 'poker').then(async invite => {
                     const embed = new MessageEmbed()
                     .setColor(config.defaultSuccessColor)
                     .setDescription(client.languages.__mf({phrase: 'youtube.inviteMessage', locale: language}, {inviteLink: invite.code}))
@@ -38,7 +38,7 @@ module.exports = {
                 });
                 break;
             case 'betrayal':
-                client.discordTogether.createTogetherCode(message.member.voice.channel.id, 'betrayal').then(async invite => {
+                client.discordTogether.createTogetherCode(interaction.member.voice.channel.id, 'betrayal').then(async invite => {
                     const embed = new MessageEmbed()
                     .setColor(config.defaultSuccessColor)
                     .setDescription(client.languages.__mf({phrase: 'youtube.inviteMessage', locale: language}, {inviteLink: invite.code}))
@@ -47,12 +47,16 @@ module.exports = {
                 });
                 break;
             case 'chess':
-                client.discordTogether.createTogetherCode(message.member.voice.channel.id, 'chess').then(async invite => {
-                    return message.channel.send(`${invite.code}`);
+                client.discordTogether.createTogetherCode(interaction.member.voice.channel.id, 'chess').then(async invite => {
+                    const embed = new MessageEmbed()
+                    .setColor(config.defaultSuccessColor)
+                    .setDescription(client.languages.__mf({phrase: 'youtube.inviteMessage', locale: language}, {inviteLink: invite.code}))
+                    .setURL(`${invite.code}`)
+                    return interaction.update({content: ' ', components: [], embeds: [embed]})
                 });
                 break;
             case 'lettertile':
-                client.discordTogether.createTogetherCode(message.member.voice.channel.id, 'lettertile').then(async invite => {
+                client.discordTogether.createTogetherCode(interaction.member.voice.channel.id, 'lettertile').then(async invite => {
                     const embed = new MessageEmbed()
                     .setColor(config.defaultSuccessColor)
                     .setDescription(client.languages.__mf({phrase: 'youtube.inviteMessage', locale: language}, {inviteLink: invite.code}))
