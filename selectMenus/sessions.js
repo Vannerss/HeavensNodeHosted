@@ -1,4 +1,3 @@
-const createTogetherCode = require('../functions/createTogether.js');
 const {MessageEmbed, } = require('discord.js');
 const config = require('../config.json');
 const {DiscordTogether} =require('discord-together');
