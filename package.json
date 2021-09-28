@@ -1,16 +1,13 @@
-{
-  "name": "heavensnode",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+{  
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
+  "name": "heavensnode",
+  "description": "Bot for learning",
+  "version": "1.0.0",
   "engines": {
-    "node": "16.10"},
-  "author": "Gabriel",
-  "license": "ISC",
+    "node": "16.x"
+  },
   "dependencies": {
     "@discordjs/builders": "^0.6.0",
     "@discordjs/rest": "^0.1.0-canary.0",
