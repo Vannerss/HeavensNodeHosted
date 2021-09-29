@@ -65,7 +65,7 @@ module.exports = {
                 });
                 break;
             case 'workdsnack':
-                client.discordTogether.createTogetherCode(message.member.voice.channel.id, 'workdsnack').then(async invite => {
+                client.discordTogether.createTogetherCode(interaction.member.voice.channel.id, 'workdsnack').then(async invite => {
                     const embed = new MessageEmbed()
                     .setColor(config.defaultSuccessColor)
                     .setDescription(client.languages.__mf({phrase: 'youtube.inviteMessage', locale: language}, {inviteLink: invite.code}))
@@ -74,7 +74,7 @@ module.exports = {
                 });
                 break;
             case 'doodlecrew':
-                client.discordTogether.createTogetherCode(message.member.voice.channel.id, 'doodlecrew').then(async invite => {
+                client.discordTogether.createTogetherCode(interaction.member.voice.channel.id, 'doodlecrew').then(async invite => {
                     const embed = new MessageEmbed()
                     .setColor(config.defaultSuccessColor)
                     .setDescription(client.languages.__mf({phrase: 'youtube.inviteMessage', locale: language}, {inviteLink: invite.code}))
