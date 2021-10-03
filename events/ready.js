@@ -7,7 +7,21 @@ module.exports = {
         mongoose.connect(config.mongoURL, {
             useNewUrlParser: true,
             useUnifiedTopology: true
-        })
+        });
+        const malClientId = config.malClientId;
+        const malClientSecret = config.malClientSecret;
+
+        
+
+
+
+
+
+
+
+
+
+
         console.log(`Ready! Logged in as ${client.user.tag}`);
     }
 }

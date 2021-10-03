@@ -2,14 +2,14 @@ const { Client, Intents, Collection } = require('discord.js');
 require('dotenv').config();
 const { token } = require('./config.json');
 const { join } = require('path');
-const { setInterval } = require('timers')
+const { setInterval } = require('timers');
 
 const client = new Client({intents: [Intents.FLAGS.GUILDS, 
                                      Intents.FLAGS.GUILD_MEMBERS,
                                      Intents.FLAGS.GUILD_MESSAGES,
                                      Intents.FLAGS.GUILD_VOICE_STATES,
-                                     Intents.FLAGS.GUILD_INVITES
-                                    ]});
+                                     Intents.FLAGS.GUILD_INVITES,
+                                     Intents.FLAGS.GUILD_PRESENCES]});
 
 client.commands = new Collection();
 client.selectMenus = new Collection();

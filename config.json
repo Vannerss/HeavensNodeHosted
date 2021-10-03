@@ -4,6 +4,5 @@
     "guildId" : "710635755013275750",
     "defaultSuccessColor" : "WHITE",
     "defaultErrorColor" : "RED",
-    "mongoURL" : "mongodb+srv://DEV2599:V3oSIsDFt5RU1SS7@heavensnodecluster.mwl2r.mongodb.net/HeavensNode",
-    "youtubeId" : "755600276941176913"
+    "mongoURL" : "mongodb+srv://DEV2599:V3oSIsDFt5RU1SS7@heavensnodecluster.mwl2r.mongodb.net/HeavensNode"
 }
