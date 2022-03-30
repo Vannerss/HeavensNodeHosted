@@ -4,6 +4,9 @@ const config = require('../../config.json');
 
 const fetch = require('node-fetch');
 
+const Jikan = require('jikan-node');
+const mal = new Jikan();
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('anime')
@@ -13,7 +16,8 @@ module.exports = {
         const animeTitle = interaction.options.getString('title');
 
         let settings = {method: "Get"};
-        fetch(`https://api.jikan.moe/v3/search/anime?q=${animeTitle}&page=1`, settings).then(res=>res.json()).then((json) => {
+        //fetch(`https://api.jikan.moe/v3/search/anime?q=${animeTitle}&page=1`, settings).then(res=>res.json()).then((json) => {
+        mal.search('anime', animeTitle, {page: 1}).then(res=>res.json()).then((json) => {
             let airing = 'undefined';
             const episodes = json.results[0].episodes
 
