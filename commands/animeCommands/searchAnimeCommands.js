@@ -1,9 +1,6 @@
 const {SlashCommandBuilder, codeBlock} = require('@discordjs/builders');
 const {MessageEmbed} = require('discord.js');
 const config = require('../../config.json');
-
-const fetch = require('node-fetch');
-
 const Jikan = require('jikan-node');
 const mal = new Jikan();
 
@@ -16,27 +13,42 @@ module.exports = {
         const animeTitle = interaction.options.getString('title');
 
         let settings = {method: "Get"};
-        //fetch(`https://api.jikan.moe/v3/search/anime?q=${animeTitle}&page=1`, settings).then(res=>res.json()).then((json) => {
-        mal.search('anime', animeTitle, {page: 1}).then(res=>res.json()).then((json) => {
-            let airing = 'undefined';
-            const episodes = json.results[0].episodes
+        mal.search('anime', animeTitle, {type: 'TV'}).then(res=>res).then((json) => {
+            const id = json.results[0].mal_id;
+            mal.findAnime(id).then(res => res).then((anime) => {
+                const title = anime.title;
+                const url = anime.url;
+                const episodes = anime.episodes;
+                const genre = anime.genres;
+                const status = anime.status;
+                const image = anime.image_url;
+                const synopsis = anime.synopsis;
+                const rating = anime.score;
+                const ranking = anime.rank;
 
-            if(json.results[0].airing){
-                airing = 'Finished Airing'
-            } else {
-                airing = 'Airing'
-            }
+                let genreString = '';
 
-            const embed = new MessageEmbed()
-            .setColor(config.defaultSuccessColor)
-            .setTitle(json.results[0].title)
-            .setDescription(`**Description:**\n ${json.results[0].synopsis}`)
-            .addFields(
-                {name: '*Episodes:*', value: codeBlock(episodes), inline: true},
-                {name: '*Status:*', value: `${airing}`, inline: true}
-            )
-            .setImage(`${json.results[0].image_url}`);
-            interaction.reply({embeds: [embed]});
-        })
+                for(let i = 0; i < genre.length; i++){
+                    genreString += genre[i].name;
+                    if((genre.length - i) != 1){
+                        genreString += ', ';
+                    }
+                }
+
+                const embed = new MessageEmbed()
+                .setColor(config.defaultSuccessColor)
+                .setTitle(title).setURL(url)
+                .setDescription('**Description:**\n' + synopsis)
+                .addFields(
+                    {name: '*Episodes:*', value: codeBlock(episodes), inline: true},
+                    {name: '*Status:*', value: codeBlock(status), inline: true},
+                    {name: '*Genres*', value: codeBlock(genreString), inline: true},
+                    {name: '*Rating:*', value: codeBlock(rating), inline: true},
+                    {name: '*Ranking:*', value: codeBlock(ranking), inline: true},
+                )
+                .setImage(image);
+                interaction.reply({embeds: [embed]});
+            }).catch(err=> console.log(err))
+        }).catch(err=> console.log(err))
     }
 }
