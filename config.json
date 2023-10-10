@@ -1,8 +1,8 @@
 {
-    "token" : "ODkxODc4MzY2OTE4MTE1Mzg5.YVEwdA.YxZf_efiHVqvl3czgyyPmQNM_mU",
-    "clientId" : "891878366918115389",
-    "guildId" : "710635755013275750",
+    "token" : "",
+    "clientId" : "",
+    "guildId" : "",
     "defaultSuccessColor" : "WHITE",
     "defaultErrorColor" : "RED",
-    "mongoURL" : "mongodb+srv://DEV2599:V3oSIsDFt5RU1SS7@heavensnodecluster.mwl2r.mongodb.net/HeavensNode"
+    "mongoURL" : "/HeavensNode"
 }
